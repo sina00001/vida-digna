@@ -1,0 +1,450 @@
+/* 1. IMPORTACIÓN DE FUENTES Y VARIABLES */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,700;1,300&family=Poppins:wght@300;400;600&display=swap');
+
+:root {
+    /* Paleta de Colores - Frescura y Salud */
+    --color-primario: #4CAF50;       /* Verde vibrante para botones/acciones */
+    --color-secundario: #81d185d2;      /* Verde oscuro para hover/detalles */
+    --color-fondo: #F9FBF9;          /* Blanco roto con tinte verdoso muy suave */
+    --color-texto: #333333;          /* Gris oscuro para lectura fácil */
+    --color-texto-suave: #666666;    /* Gris para subtítulos */
+    --color-blanco: #ffffff;
+    --color-acento: #E8F5E9;         /* Verde muy claro para fondos de sección */
+    
+    /* Tipografía */
+    --fuente-titulos: 'Merriweather', serif;
+    --fuente-cuerpo: 'Poppins', sans-serif;
+    
+    /* Espaciado y Bordes */
+    --radio-borde: 8px;
+    --sombra-suave: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+/* 2. RESET Y ESTILOS GLOBALES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Desplazamiento suave al hacer clic en enlaces */
+}
+
+body {
+    font-family: --fuente-cuerpo;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: var(--fuente-titulos);
+    color: var(--color-secundario);
+    margin-bottom: 1rem;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.3s;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* 3. CLASES UTILITARIAS */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+/* Pequeña línea decorativa bajo los títulos */
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--color-primario);
+}
+
+/* Botones */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-family: var(--fuente-cuerpo);
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary {
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-secundario);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 2px solid var(--color-primario);
+    color: var(--color-primario);
+    margin-left: 10px;
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+}
+
+/* 4. ENCABEZADO (HEADER) */
+header {
+    background-color: var(--color-blanco);
+    box-shadow: var(--sombra-suave);
+    position: sticky; /* El menú se queda fijo al bajar */
+    top: 0;
+    z-index: 1000;
+    padding: 1rem 0;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0;
+    color: var(--color-secundario);
+}
+
+nav ul {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+nav a {
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+nav a:hover {
+    color: var(--color-primario);
+}
+
+.btn-nav {
+    background-color: var(--color-primario);
+    color: var(--color-blanco) !important;
+    padding: 8px 20px;
+    border-radius: 20px;
+}
+
+.btn-nav:hover {
+    background-color: var(--color-secundario);
+}
+
+/* 5. HERO SECTION */
+.hero {
+    background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.7)), url('https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    padding: 150px 0 100px;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero h2 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    color: var(--color-secundario);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: var(--color-texto-suave);
+    margin: 20px 0 40px;
+}
+
+/* 6. SOBRE MÍ */
+.about {
+    padding: 80px 0;
+    background-color: var(--color-blanco);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.about-image img {
+    border-radius: 20px;
+    box-shadow: 20px 20px 0 var(--color-acento); /* Efecto decorativo */
+}
+
+.about-text .subtitle {
+    text-transform: uppercase;
+    color: var(--color-primario);
+    letter-spacing: 2px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.about-text ul {
+    margin-top: 20px;
+}
+
+.about-text li {
+    margin-bottom: 10px;
+    font-size: 1.05rem;
+}
+
+/* 7. SERVICIOS */
+.services {
+    padding: 80px 0;
+    background-color: var(--color-acento);
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: var(--color-blanco);
+    padding: 40px 30px;
+    border-radius: var(--radio-borde);
+    text-align: center;
+    box-shadow: var(--sombra-suave);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card .icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+/* 8. TESTIMONIOS */
+.testimonials {
+    padding: 80px 0;
+}
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.testimonial-card {
+    background-color: var(--color-blanco);
+    border-left: 5px solid var(--color-primario);
+    padding: 30px;
+    box-shadow: var(--sombra-suave);
+}
+
+.testimonial-card p {
+    font-style: italic;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.testimonial-card cite {
+    font-weight: bold;
+    color: var(--color-secundario);
+    font-style: normal;
+}
+
+/* 9. FORMULARIO DE RESERVA */
+.booking {
+    padding: 80px 0;
+    background-color: var(--color-secundario);
+    color: var(--color-blanco);
+}
+
+.booking-container {
+    max-width: 600px;
+}
+
+.booking-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.booking-header h3 {
+    color: var(--color-blanco);
+}
+
+.booking-form {
+    background-color: var(--color-blanco);
+    padding: 40px;
+    border-radius: var(--radio-borde);
+    color: var(--color-texto);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.form-group input, 
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: inherit;
+}
+
+.btn-block {
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* 10. FOOTER */
+footer {
+    background-color: #222;
+    color: #eee;
+    padding: 60px 0 20px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+footer h4, footer h5 {
+    color: var(--color-blanco);
+    margin-bottom: 15px;
+}
+
+footer a:hover {
+    color: var(--color-primario);
+}
+
+.copyright {
+    text-align: center;
+    border-top: 1px solid #444;
+    padding-top: 20px;
+    font-size: 0.9rem;
+    color: #888;
+}
+
+/* 11. RESPONSIVE DESIGN (Móvil) */
+@media (max-width: 768px) {
+    /* Ajustes para tablet y móvil */
+    .hero h2 {
+        font-size: 2.5rem;
+    }
+    
+    header .container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    nav ul {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .about-grid, 
+    .testimonial-grid {
+        grid-template-columns: 1fr; /* Una sola columna */
+    }
+
+    .about-image {
+        order: -1; /* Imagen arriba en móvil */
+        text-align: center;
+    }
+}
+
+
+
+
+/* --- AÑADIDO PARA LA INTERACTIVIDAD JS --- */
+
+/* Estilos para el botón de menú (inicialmente oculto en PC) */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--color-secundario);
+}
+
+/* Estilos de alertas generadas por JS */
+.alerta {
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+}
+
+/* MODIFICACIÓN RESPONSIVA PARA EL MENÚ */
+@media (max-width: 768px) {
+    .mobile-menu-btn {
+        display: block; /* Mostrar botón en móvil */
+    }
+
+    nav ul {
+        display: none; /* Ocultar menú por defecto en móvil */
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 70px; /* Ajusta según la altura de tu header */
+        left: 0;
+        background-color: var(--color-blanco);
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        padding: 20px;
+        text-align: center;
+    }
+
+    /* Clase que añade JS cuando se abre el menú */
+    nav ul.active {
+        display: flex; 
+    }
+}
